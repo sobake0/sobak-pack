@@ -1,0 +1,11 @@
+{
+  "packVersion": "1.0.0",
+  "baseUrl": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/files/",
+  "files": [
+    {
+      "path": "test.txt",
+      "sha256": "4D8DCF0F6895B25873E3608E32CC58984F73D3467A338222FC6B51A80A658D6E"
+    }
+  ],
+  "delete": []
+}
