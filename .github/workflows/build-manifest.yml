@@ -1,0 +1,429 @@
+name: Build SOBAK Manifest
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "files/**"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-manifest:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ==========================================
+      # 저장소 다운로드
+      # ==========================================
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ==========================================
+      # Node.js 준비
+      # ==========================================
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # ==========================================
+      # manifest.json 자동 생성
+      # ==========================================
+      - name: Generate manifest.json
+        env:
+          REPOSITORY: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+          RUN_NUMBER: ${{ github.run_number }}
+
+        run: |
+          node <<'NODE'
+
+          const fs = require('fs')
+          const path = require('path')
+          const crypto = require('crypto')
+
+
+          // ========================================
+          // 기본 경로
+          // ========================================
+
+          const root = process.cwd()
+
+          const filesRoot =
+            path.join(root, 'files')
+
+          const manifestPath =
+            path.join(root, 'manifest.json')
+
+
+          const repository =
+            process.env.REPOSITORY
+
+          const sourceSha =
+            process.env.SOURCE_SHA
+
+          const runNumber =
+            process.env.RUN_NUMBER
+
+
+          // ========================================
+          // files 폴더 전체 검색
+          // ========================================
+
+          function walk(dir) {
+
+            if (!fs.existsSync(dir)) {
+              return []
+            }
+
+            let result = []
+
+            for (
+              const entry
+              of fs.readdirSync(
+                dir,
+                { withFileTypes: true }
+              )
+            ) {
+
+              const full =
+                path.join(
+                  dir,
+                  entry.name
+                )
+
+              if (entry.isDirectory()) {
+
+                result =
+                  result.concat(
+                    walk(full)
+                  )
+
+              } else if (entry.isFile()) {
+
+                result.push(full)
+              }
+            }
+
+            return result
+          }
+
+
+          // ========================================
+          // SHA-256 계산
+          // ========================================
+
+          function sha256(file) {
+
+            const data =
+              fs.readFileSync(file)
+
+            return crypto
+              .createHash('sha256')
+              .update(data)
+              .digest('hex')
+              .toUpperCase()
+          }
+
+
+          // ========================================
+          // URL용 경로 인코딩
+          // 한글/공백 파일명 대응
+          // ========================================
+
+          function encodePath(value) {
+
+            return value
+              .split('/')
+              .map(part =>
+                encodeURIComponent(part)
+              )
+              .join('/')
+          }
+
+
+          // ========================================
+          // 기존 manifest 불러오기
+          //
+          // 삭제된 파일을 자동으로 찾기 위해 사용
+          // ========================================
+
+          let previousManifest = {
+            files: [],
+            delete: []
+          }
+
+
+          if (
+            fs.existsSync(
+              manifestPath
+            )
+          ) {
+
+            try {
+
+              previousManifest =
+                JSON.parse(
+                  fs.readFileSync(
+                    manifestPath,
+                    'utf8'
+                  )
+                )
+
+            } catch (e) {
+
+              console.log(
+                '기존 manifest.json을 읽을 수 없습니다.'
+              )
+            }
+          }
+
+
+          // ========================================
+          // 배포하지 않을 파일
+          // ========================================
+
+          const ignoredNames =
+            new Set([
+              '.gitkeep',
+              '.DS_Store',
+              'Thumbs.db'
+            ])
+
+
+          // ========================================
+          // 현재 files 폴더 파일 목록 생성
+          // ========================================
+
+          const allFiles =
+            walk(filesRoot)
+              .filter(file =>
+                !ignoredNames.has(
+                  path.basename(file)
+                )
+              )
+
+
+          const manifestFiles =
+            allFiles.map(fullPath => {
+
+              const relativePath =
+                path
+                  .relative(
+                    filesRoot,
+                    fullPath
+                  )
+                  .replace(
+                    /\\/g,
+                    '/'
+                  )
+
+
+              // ------------------------------------
+              // GitHub main 주소가 아니라
+              // 정확한 Commit SHA를 사용
+              //
+              // GitHub Raw 캐시 문제 방지
+              // ------------------------------------
+
+              const url =
+                `https://raw.githubusercontent.com/` +
+                `${repository}/` +
+                `${sourceSha}/files/` +
+                `${encodePath(relativePath)}`
+
+
+              return {
+
+                path:
+                  relativePath,
+
+                url:
+                  url,
+
+                sha256:
+                  sha256(fullPath)
+              }
+            })
+
+
+          // 파일 순서를 일정하게 유지
+          manifestFiles.sort(
+            (a, b) =>
+              a.path.localeCompare(
+                b.path
+              )
+          )
+
+
+          // ========================================
+          // 삭제된 파일 자동 감지
+          // ========================================
+
+          const currentPaths =
+            new Set(
+              manifestFiles.map(
+                file => file.path
+              )
+            )
+
+
+          // 기존 삭제 목록 유지
+          //
+          // 예전 버전에서 바로 최신 버전으로
+          // 업데이트해도 삭제가 적용되도록 함
+
+          const deleted =
+            new Set(
+              Array.isArray(
+                previousManifest.delete
+              )
+                ? previousManifest.delete
+                : []
+            )
+
+
+          // 이전 manifest에는 있었는데
+          // 현재 files 폴더에는 없으면 삭제 목록에 추가
+
+          for (
+            const oldFile
+            of (
+              Array.isArray(
+                previousManifest.files
+              )
+                ? previousManifest.files
+                : []
+            )
+          ) {
+
+            if (
+              oldFile.path &&
+              !currentPaths.has(
+                oldFile.path
+              )
+            ) {
+
+              deleted.add(
+                oldFile.path
+              )
+            }
+          }
+
+
+          // 삭제했던 파일을 나중에 다시 추가했다면
+          // delete 목록에서는 자동 제거
+
+          for (
+            const currentPath
+            of currentPaths
+          ) {
+
+            deleted.delete(
+              currentPath
+            )
+          }
+
+
+          // ========================================
+          // 자동 버전
+          //
+          // 예:
+          // build-12-a1b2c3d
+          // ========================================
+
+          const packVersion =
+            `build-${runNumber}-` +
+            sourceSha.substring(0, 7)
+
+
+          // ========================================
+          // 최종 manifest
+          // ========================================
+
+          const manifest = {
+
+            packVersion:
+              packVersion,
+
+            baseUrl:
+              `https://raw.githubusercontent.com/` +
+              `${repository}/` +
+              `${sourceSha}/files/`,
+
+            files:
+              manifestFiles,
+
+            delete:
+              Array
+                .from(deleted)
+                .sort()
+          }
+
+
+          // ========================================
+          // 저장
+          // ========================================
+
+          fs.writeFileSync(
+            manifestPath,
+            JSON.stringify(
+              manifest,
+              null,
+              2
+            ) + '\n',
+            'utf8'
+          )
+
+
+          console.log('')
+          console.log('==============================')
+          console.log('SOBAK manifest 생성 완료')
+          console.log('==============================')
+          console.log(
+            `Pack Version : ${packVersion}`
+          )
+          console.log(
+            `파일 수      : ${manifestFiles.length}`
+          )
+          console.log(
+            `삭제 목록    : ${deleted.size}`
+          )
+          console.log(
+            `Commit SHA   : ${sourceSha}`
+          )
+          console.log('==============================')
+
+          NODE
+
+
+      # ==========================================
+      # 생성된 manifest 자동 Commit
+      # ==========================================
+      - name: Commit manifest.json
+        run: |
+
+          if git diff --quiet -- manifest.json; then
+            echo "manifest.json 변경 없음"
+            exit 0
+          fi
+
+          git config \
+            user.name \
+            "github-actions[bot]"
+
+          git config \
+            user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add manifest.json
+
+          git commit \
+            -m "chore: auto-build SOBAK manifest"
+
+          git push
