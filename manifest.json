@@ -4,6 +4,7 @@
   "files": [
     {
       "path": "test.txt",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/files/test.txt?v=2",
       "sha256": "F600DB60E600FD98BC3A8B048AD663FFC5D1BF2713DFB37494AD0E9BFAE9BD87"
     }
   ],
