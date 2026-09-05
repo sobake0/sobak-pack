@@ -1,20 +1,30 @@
 {
-  "packVersion": "build-2-b319a22",
-  "baseUrl": "https://raw.githubusercontent.com/sobake0/sobak-pack/b319a221c8746d92b2d753144bb34317218a9cf7/files/",
+  "packVersion": "build-3-cc565dd",
+  "baseUrl": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/",
   "files": [
     {
       "path": "mods/hud_texts_v3.2_1.21.1_[NEOFORGE].jar",
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/b319a221c8746d92b2d753144bb34317218a9cf7/files/mods/hud_texts_v3.2_1.21.1_%5BNEOFORGE%5D.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/hud_texts_v3.2_1.21.1_%5BNEOFORGE%5D.jar",
       "sha256": "37EE0D8347061137FDB94F79F13049CBB0520A8C8A31D3AE2B2405C926024F74"
     },
     {
+      "path": "mods/journeymap-neoforge-1.21.1-6.0.7.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/journeymap-neoforge-1.21.1-6.0.7.jar",
+      "sha256": "E984149EE3275020661F0D691A7E3256DF98EEDE419F2C2833D27F27D26AD7AF"
+    },
+    {
       "path": "mods/koreanpatch-neoforge-1.9.6+mc1.21.jar",
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/b319a221c8746d92b2d753144bb34317218a9cf7/files/mods/koreanpatch-neoforge-1.9.6%2Bmc1.21.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/koreanpatch-neoforge-1.9.6%2Bmc1.21.jar",
       "sha256": "0DFF16AD9752C7211F39672E3480866BEF5E1D7E4A37206525335995CAE585AF"
     },
     {
+      "path": "mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+      "sha256": "68E6F4201C5DE97B77929A7215C9552495696CA6A3BF3AE4EACC34E135F6CC8B"
+    },
+    {
       "path": "mods/pixelmon_server_hud-0.3.4.jar",
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/b319a221c8746d92b2d753144bb34317218a9cf7/files/mods/pixelmon_server_hud-0.3.4.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/pixelmon_server_hud-0.3.4.jar",
       "sha256": "E9C21503DFC455D5C4D12E3B6094B09ACB4F35D35ED98355BBFA77B35EE7584F"
     }
   ],
