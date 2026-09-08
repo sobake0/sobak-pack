@@ -26,11 +26,16 @@
       "path": "mods/pixelmon_server_hud-0.3.4.jar",
       "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/pixelmon_server_hud-0.3.4.jar",
       "sha256": "E9C21503DFC455D5C4D12E3B6094B09ACB4F35D35ED98355BBFA77B35EE7584F"
+    },
+    {
+      "path": "config/jei-1.21.1-neoforge-19.53.0.426.jar",
+      "sha256": "d76b62fd38acc119de5d64c0f5b13e2965fcd0f85079ca4620b74a9a342c017d",
+      "size": 1847607,
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/config/jei-1.21.1-neoforge-19.53.0.426.jar"
     }
   ],
   "delete": [
     "mods/.dsa",
-    "test.txt",
-    "config/jei-1.21.1-neoforge-19.53.0.426.jar"
+    "test.txt"
   ]
 }
