@@ -1,57 +1,49 @@
 {
-  "packVersion": "1789302892305",
-  "baseUrl": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/",
+  "packVersion": "build-4-d8ec62a",
+  "baseUrl": "https://raw.githubusercontent.com/sobake0/sobak-pack/d8ec62a96df7065acdf06a34055696f8b3b7687a/files/",
   "files": [
     {
       "path": "mods/hud_texts_v3.2_1.21.1_[NEOFORGE].jar",
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/hud_texts_v3.2_1.21.1_%5BNEOFORGE%5D.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/d8ec62a96df7065acdf06a34055696f8b3b7687a/files/mods/hud_texts_v3.2_1.21.1_%5BNEOFORGE%5D.jar",
       "sha256": "37EE0D8347061137FDB94F79F13049CBB0520A8C8A31D3AE2B2405C926024F74"
     },
     {
       "path": "mods/journeymap-neoforge-1.21.1-6.0.7.jar",
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/journeymap-neoforge-1.21.1-6.0.7.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/d8ec62a96df7065acdf06a34055696f8b3b7687a/files/mods/journeymap-neoforge-1.21.1-6.0.7.jar",
       "sha256": "E984149EE3275020661F0D691A7E3256DF98EEDE419F2C2833D27F27D26AD7AF"
     },
     {
       "path": "mods/koreanpatch-neoforge-1.9.6+mc1.21.jar",
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/koreanpatch-neoforge-1.9.6%2Bmc1.21.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/d8ec62a96df7065acdf06a34055696f8b3b7687a/files/mods/koreanpatch-neoforge-1.9.6%2Bmc1.21.jar",
       "sha256": "0DFF16AD9752C7211F39672E3480866BEF5E1D7E4A37206525335995CAE585AF"
     },
     {
       "path": "mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/d8ec62a96df7065acdf06a34055696f8b3b7687a/files/mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
       "sha256": "68E6F4201C5DE97B77929A7215C9552495696CA6A3BF3AE4EACC34E135F6CC8B"
     },
     {
       "path": "mods/pixelmon_server_hud-0.3.4.jar",
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/cc565dd860b75dff5f861ca60e43a004878a3dac/files/mods/pixelmon_server_hud-0.3.4.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/d8ec62a96df7065acdf06a34055696f8b3b7687a/files/mods/pixelmon_server_hud-0.3.4.jar",
       "sha256": "E9C21503DFC455D5C4D12E3B6094B09ACB4F35D35ED98355BBFA77B35EE7584F"
     },
     {
-      "path": "mods/jei-1.21.1-neoforge-19.53.0.426.jar",
-      "sha256": "d76b62fd38acc119de5d64c0f5b13e2965fcd0f85079ca4620b74a9a342c017d",
-      "size": 1847607,
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/mods/jei-1.21.1-neoforge-19.53.0.426.jar",
-      "source": "github"
+      "path": "mods/sobakclient-0.4.2.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/d8ec62a96df7065acdf06a34055696f8b3b7687a/files/mods/sobakclient-0.4.2.jar",
+      "sha256": "0B77298AA5C3B2A043F3AA8A227327DBA303D69650E10C39586AF415CCBF120C"
     },
     {
-      "path": "config/sobakclient-0.4.2.jar",
-      "sha256": "0b77298aa5c3b2a043f3aa8a227327dba303d69650e10c39586af415ccbf120c",
-      "size": 597289,
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/config/sobakclient-0.4.2.jar",
-      "source": "github"
-    },
-    {
-      "path": "config/sobakcosmeticclient-1.0.6.jar",
-      "sha256": "fa571704e1e5ff867a8b66f02d73222ea4ee8c3938c0ec0a68afee1b990c7dda",
-      "size": 32451,
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/config/sobakcosmeticclient-1.0.6.jar",
-      "source": "github"
+      "path": "mods/sobakcosmeticclient-1.0.6.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/d8ec62a96df7065acdf06a34055696f8b3b7687a/files/mods/sobakcosmeticclient-1.0.6.jar",
+      "sha256": "FA571704E1E5FF867A8B66F02D73222EA4EE8C3938C0EC0A68AFEE1B990C7DDA"
     }
   ],
   "delete": [
+    "config/jei-1.21.1-neoforge-19.53.0.426.jar",
+    "config/sobakclient-0.4.2.jar",
+    "config/sobakcosmeticclient-1.0.6.jar",
     "mods/.dsa",
-    "test.txt",
-    "config/jei-1.21.1-neoforge-19.53.0.426.jar"
+    "mods/jei-1.21.1-neoforge-19.53.0.426.jar",
+    "test.txt"
   ]
 }
