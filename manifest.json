@@ -1,5 +1,5 @@
 {
-  "packVersion": "1788889810884",
+  "packVersion": "1789302878372",
   "baseUrl": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/",
   "files": [
     {
@@ -32,6 +32,13 @@
       "sha256": "d76b62fd38acc119de5d64c0f5b13e2965fcd0f85079ca4620b74a9a342c017d",
       "size": 1847607,
       "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/mods/jei-1.21.1-neoforge-19.53.0.426.jar",
+      "source": "github"
+    },
+    {
+      "path": "config/sobakclient-0.4.2.jar",
+      "sha256": "0b77298aa5c3b2a043f3aa8a227327dba303d69650e10c39586af415ccbf120c",
+      "size": 597289,
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/config/sobakclient-0.4.2.jar",
       "source": "github"
     }
   ],
