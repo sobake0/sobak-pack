@@ -1,5 +1,5 @@
 {
-  "packVersion": "1789302878372",
+  "packVersion": "1789302892305",
   "baseUrl": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/",
   "files": [
     {
@@ -39,6 +39,13 @@
       "sha256": "0b77298aa5c3b2a043f3aa8a227327dba303d69650e10c39586af415ccbf120c",
       "size": 597289,
       "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/config/sobakclient-0.4.2.jar",
+      "source": "github"
+    },
+    {
+      "path": "config/sobakcosmeticclient-1.0.6.jar",
+      "sha256": "fa571704e1e5ff867a8b66f02d73222ea4ee8c3938c0ec0a68afee1b990c7dda",
+      "size": 32451,
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/config/sobakcosmeticclient-1.0.6.jar",
       "source": "github"
     }
   ],
