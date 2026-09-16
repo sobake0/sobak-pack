@@ -1,5 +1,5 @@
 {
-  "packVersion": "1789538965693",
+  "packVersion": "1789538981774",
   "baseUrl": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/",
   "files": [
     {
@@ -33,10 +33,10 @@
       "sha256": "FA571704E1E5FF867A8B66F02D73222EA4EE8C3938C0EC0A68AFEE1B990C7DDA"
     },
     {
-      "path": "config/sobakclient-0.4.3.jar",
+      "path": "mods/sobakclient-0.4.3.jar",
       "sha256": "eb6b0adc55724f05ec16131c45cff77f4aa38f5eeb82b017f018ba38af17932f",
       "size": 597675,
-      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/config/sobakclient-0.4.3.jar",
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/mods/sobakclient-0.4.3.jar",
       "source": "github"
     }
   ],
@@ -47,6 +47,7 @@
     "mods/.dsa",
     "mods/jei-1.21.1-neoforge-19.53.0.426.jar",
     "mods/sobakclient-0.4.2.jar",
-    "test.txt"
+    "test.txt",
+    "config/sobakclient-0.4.3.jar"
   ]
 }
