@@ -1,6 +1,6 @@
 {
-  "packVersion": "build-5-7c5352d",
-  "baseUrl": "https://raw.githubusercontent.com/sobake0/sobak-pack/7c5352db3d5b88ac178dae8034991ffa336ffdbe/files/",
+  "packVersion": "1789538965693",
+  "baseUrl": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/",
   "files": [
     {
       "path": "mods/hud_texts_v3.2_1.21.1_[NEOFORGE].jar",
@@ -31,6 +31,13 @@
       "path": "mods/sobakcosmeticclient-1.0.6.jar",
       "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/7c5352db3d5b88ac178dae8034991ffa336ffdbe/files/mods/sobakcosmeticclient-1.0.6.jar",
       "sha256": "FA571704E1E5FF867A8B66F02D73222EA4EE8C3938C0EC0A68AFEE1B990C7DDA"
+    },
+    {
+      "path": "config/sobakclient-0.4.3.jar",
+      "sha256": "eb6b0adc55724f05ec16131c45cff77f4aa38f5eeb82b017f018ba38af17932f",
+      "size": 597675,
+      "url": "https://raw.githubusercontent.com/sobake0/sobak-pack/main/pack-files/config/sobakclient-0.4.3.jar",
+      "source": "github"
     }
   ],
   "delete": [
